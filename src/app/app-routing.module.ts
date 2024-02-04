@@ -7,16 +7,14 @@ import { authGurdGuard } from './guard/auth-gurd.guard';
 const routes: Routes = [
   {
     path: '',
-    // component: LoginViewComponent,
     loadChildren: () => import('./views/login-view/login-view.module').then(m => m.LoginViewModule),
 
     
   },
   {
     path: 'home',
-    // component: HomeComponent,
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
-    // canActivate: [authGurdGuard]
+    canActivate: [authGurdGuard]
   },
 ];
 
