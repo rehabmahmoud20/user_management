@@ -1,0 +1,23 @@
+<div>
+  <button
+    (click)="handleChangePage(currentpage - 1)"
+    [ngClass]="{ disabled: currentpage == 1 }"
+  >
+    <img [src]="arrowleft" alt="icon" />
+  </button>
+  <button
+    *ngFor="let page of pages"
+    (click)="handleChangePage(page)"
+    [ngClass]="{ active: currentpage === page }"
+  >
+    {{ page }}
+  </button>
+
+  <button
+    [disabled]=""
+    (click)="handleChangePage(currentpage + 1)"
+    [ngClass]="{ disabled: currentpage >= this.pages.length }"
+  >
+    <img [src]="arrowRight" alt="icon" />
+  </button>
+</div>

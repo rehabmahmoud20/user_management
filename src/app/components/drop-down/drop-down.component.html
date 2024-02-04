@@ -1,0 +1,13 @@
+<div class="select">
+  <label for="mySelect">{{ label }}</label>
+  <select
+    name="cars"
+    id="mySelect"
+    [(ngModel)]="selectedValue"
+    (change)="handleChange()"
+  >
+    <option *ngFor="let item of filteredValues" [value]="item.value">
+      {{ item.label }}
+    </option>
+  </select>
+</div>

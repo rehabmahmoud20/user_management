@@ -1,0 +1,151 @@
+<section class="users-list-wrapper">
+  <table mat-table [dataSource]="paginatedData" class="mat-elevation-z8 table">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select" >
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? toggleAllRows() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)"
+        >
+        </mat-checkbox>
+      </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name" style="height: 36px;">
+      <th mat-header-cell *matHeaderCellDef>full name</th>
+      <!-- <td mat-cell *matCellDef="let element">{{ element.joined }}</td>
+    
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td> -->
+      <td mat-cell *matCellDef="let element">
+        <div class="td-container">
+          <img [src]="image" alt="Image" class="avatar" />
+          <span>{{ element.name }}</span>
+        </div>
+      </td>
+    </ng-container>
+  
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email address</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+  
+    <!-- location Column -->
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef>location</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="td-container">
+          <img src="../assets/icons/location.svg" alt="Image" />
+          <span>{{ element.location }}</span>
+        </div>
+      </td>
+    </ng-container>
+  
+    <!-- joined Column -->
+    <ng-container matColumnDef="joined">
+      <th mat-header-cell *matHeaderCellDef>joined</th>
+      <td mat-cell *matCellDef="let element">{{ element.joined }}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="permissions">
+      <th mat-header-cell *matHeaderCellDef>permissions</th>
+      <td mat-cell *matCellDef="let element">
+        <p
+          [ngStyle]="{
+            backgroundColor:
+              element.permissions === 'admin'
+                ? '#DE6767'
+                : element.permissions === 'viewer'
+                ? '#1F2124'
+                : '#025E86',
+            padding: '4px',
+            width: 'fit-content',
+            borderRadius: '3px'
+          }"
+        >
+          {{ element.permissions }}
+        </p>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="static">
+      <th mat-header-cell *matHeaderCellDef>
+        <img src="../assets/icons/Calendar.svg" alt="Image" />
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <img src="../assets/icons/dots.svg" alt="Image" />
+      </td>
+    </ng-container>
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- delete -->
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="delete"
+          (click)="handleDelete(element.id)"
+        ></mat-icon>
+        <!-- edit -->
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="edit"
+          (click)="handleEdit(element.id)"
+        ></mat-icon>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="selection.toggle(row)"
+    ></tr>
+  </table>
+  <!-- pagination  -->
+  <div class="flex justify-content-between items-center">
+    <app-pagination
+      *ngIf="data.length"
+      [currentpage]="currentPage"
+      [limit]="itemsPerPage"
+      [total]="data.length"
+      (changePage)="changePageHandler($event)"
+    ></app-pagination>
+  
+    <div class="flex items-center">
+      <p>Show :</p>
+      <md-button
+        mat-button
+        [matMenuTriggerFor]="menu"
+        class="menue-btn flex items-center"
+        >{{ itemsPerPage }} rows
+        <img [src]="menueIcon" alt="icon" />
+      </md-button>
+      <mat-menu #menu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let item of itemsPerPageArray"
+          (click)="handlePaginationMenue(item)"
+        >
+          {{ item }}
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</section>
+

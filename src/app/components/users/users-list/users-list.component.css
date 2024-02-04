@@ -1,0 +1,44 @@
+.users-list-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.table {
+  background-color: rgb(80, 80, 80);
+  box-shadow: none;
+  min-height: 590px;
+  width: 500px;
+  margin-bottom: 40px;
+}
+.table th {
+  background-color: #3d3d3d;
+}
+.table td {
+  min-height: 40px;
+}
+.table span,
+.table td,
+.table th {
+  color: var(--white-color);
+  text-transform: capitalize;
+}
+.table .td-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.menue-btn {
+  color: var(--white-color);
+  border: 3px solid #9b9b9b;
+  padding: 8px 13px;
+  margin-left: 20px;
+  gap: 16px;
+}
+
+@media all and (max-width: 500px) {
+  .table {
+    background-color: aqua;
+    overflow: scroll;
+  }
+}/*# sourceMappingURL=users-list.component.css.map */

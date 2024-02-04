@@ -1,0 +1,27 @@
+button {
+  border: 0;
+  color: var(--white-color);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.new-user {
+  background-color: var(--primary-color);
+  gap: 4px;
+}
+
+.export {
+  background-color: transparent;
+  border: 2px solid rgba(112, 112, 112, 0.5294117647);
+}
+
+.new-user, .export {
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .upper-header {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}/*# sourceMappingURL=home.component.css.map */

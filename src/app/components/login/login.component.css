@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+form mat-form-field,
+form button {
+  width: 50%;
+}
+form button {
+  background-color: var(--white-color);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(80, 80, 80);
+}
+
+.erorr-msg {
+  margin-bottom: 4px;
+}/*# sourceMappingURL=login.component.css.map */

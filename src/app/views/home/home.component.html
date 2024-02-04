@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="main-margin">user management</h1>
+  <div class="flex justify-content-between upper-header">
+    <div class="flex gap main-margin">
+      <app-search></app-search>
+      <app-drop-down
+        [filteredValues]="permissions"
+        [label]="permissionsLabel"
+      ></app-drop-down>
+      <app-drop-down
+        [filteredValues]="joined"
+        [label]="joinedLabel"
+      ></app-drop-down>
+      <img [src]="squareImg" alt="icon" height="44px"/>
+    </div>
+
+    <div class="flex gap items-center" style="height: 46px">
+      <img [src]="dotsImage" alt="icon" height="34px"/>
+      <button class="export">export</button>
+      <button
+       
+        (click)="openDialog()"
+        style=""
+        class="new-user flex items-center"
+      >
+        <img [src]="exportImage" alt="" />
+        new user
+      </button>
+    </div>
+  </div>
+
+  <app-users-list></app-users-list>
+</div>

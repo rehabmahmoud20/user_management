@@ -1,0 +1,25 @@
+div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.active {
+  width: 25px;
+  height: 25px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: auto;
+  pointer-events: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  color: var(--white-color);
+}/*# sourceMappingURL=pagination.component.css.map */

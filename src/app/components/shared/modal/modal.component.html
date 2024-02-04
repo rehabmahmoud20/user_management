@@ -1,0 +1,98 @@
+<h2 mat-dialog-title>user data</h2>
+<mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+  <form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
+    <div class="formWrapper" style="display: flex; flex-direction: column">
+      <mat-form-field>
+        <mat-label>full name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          formControls['name'].errors &&
+          formControls['name'].touched &&
+          formControls['name'].errors['required']
+        "
+        >Name is <strong>required</strong></mat-error
+      >
+      <!-- ---------------------- email ----------------------- -->
+      <mat-form-field>
+        <mat-label>email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          formControls['email'].errors &&
+          formControls['email'].touched &&
+          formControls['email'].errors['required']
+        "
+        >Email is <strong>required</strong></mat-error
+      >
+      <mat-error
+        *ngIf="
+          formControls['email'].errors &&
+          formControls['email'].touched &&
+          formControls['email'].errors['email']
+        "
+        >It must be<strong>Email</strong></mat-error
+      >
+      <!----------------------------------- location ------------------------------------>
+
+      <mat-form-field>
+        <mat-label>location</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          formControls['location'].errors &&
+          formControls['location'].touched &&
+          formControls['location'].errors['required']
+        "
+        >Location is <strong>required</strong></mat-error
+      >
+      <!----------------------------------- date ------------------------------------>
+
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          formControls['date'].errors &&
+          formControls['date'].touched &&
+          formControls['date'].errors['required']
+        "
+        >Date is <strong>required</strong></mat-error
+      >
+      <!----------------------------------- permission ------------------------------------>
+      <mat-form-field>
+        <mat-label>permission</mat-label>
+        <mat-select formControlName="permissions">
+          <mat-option
+            *ngFor="let option of permissions"
+            [value]="option.value"
+            >{{ option.label }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          formControls['permissions'].errors &&
+          formControls['permissions'].touched &&
+          formControls['permissions'].errors['required']
+        "
+        >Permission is <strong>required</strong></mat-error
+      >
+    </div>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>No Thanks</button>
+      <button mat-button cdkFocusInitial type="submit">Ok</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
