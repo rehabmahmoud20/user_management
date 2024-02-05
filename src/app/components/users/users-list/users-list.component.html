@@ -26,11 +26,8 @@
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="name" style="height: 36px;">
+    <ng-container matColumnDef="name" >
       <th mat-header-cell *matHeaderCellDef>full name</th>
-      <!-- <td mat-cell *matCellDef="let element">{{ element.joined }}</td>
-    
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td> -->
       <td mat-cell *matCellDef="let element">
         <div class="td-container">
           <img [src]="image" alt="Image" class="avatar" />

@@ -18,23 +18,11 @@ export class UsersListComponent implements OnInit {
     private __SharedService: SharedService,
     private dialog: MatDialog
   ) {}
-  menueIcon:string='../../../../assets/icons/menueBtn.svg'
+  menueIcon: string = '../../../../assets/icons/menueBtn.svg';
   // pagination
   currentPage: number = 1;
   itemsPerPage: number = 10;
-  itemsPerPageArray: number[] = [10,15 , 20];
-  changePageHandler(page: number): void {
-    this.currentPage = page;
-  }
-  handlePaginationMenue(limit: number): void {
-    this.itemsPerPage = limit;
-  }
-  get paginatedData(): any[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.data.slice(startIndex, endIndex);
-  }
-
+  itemsPerPageArray: number[] = [10, 15, 20];
   image: string = '../../../assets/images/person.png';
   displayedColumns: string[] = [
     'select',
@@ -119,6 +107,18 @@ export class UsersListComponent implements OnInit {
 
     this.dialog.open(ModalComponent, { width: '700px' });
   }
+  // pagination
+  changePageHandler(page: number): void {
+    this.currentPage = page;
+  }
+  handlePaginationMenue(limit: number): void {
+    this.itemsPerPage = limit;
+  }
+  get paginatedData(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.data.slice(startIndex, endIndex);
+  }
 
-  ////
+
 }

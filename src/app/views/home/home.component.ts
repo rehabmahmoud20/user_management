@@ -18,12 +18,12 @@ export class HomeComponent {
   dotsImage:string ="../../../assets/icons/more.svg"
   squareImg:string ="../../../assets/icons/Group 18.svg"
 
-  permissions: any[] = [
+  permissions: {value:number,label:string}[] = [
     { value: 1, label: 'admin' },
     { value: 2, label: 'viewer' },
     { value: 3, label: 'contriputer' },
   ];
-  joined: any[] = [
+  joined: {value:number,label:string}[] = [
     { value: 1, label: 'any time' },
     { value: 2, label: 'before 2020' },
     { value: 3, label: 'after 2020' },

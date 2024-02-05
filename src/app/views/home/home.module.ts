@@ -38,7 +38,6 @@ const routes: Routes = [
     DropDownComponent,
     UsersListComponent,
     HomeComponent,
-
   ],
   imports: [
     CommonModule,

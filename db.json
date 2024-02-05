@@ -73,12 +73,12 @@
       "permissions": "admin"
     },
     {
-      "id": "f99f",
       "name": "Hiroko Swanson",
       "email": "zijyli@mailinator.com",
       "location": "Aliquam dolor labori",
       "joined": "Oct 10, 1973",
-      "permissions": "contriputer"
+      "permissions": "viewer",
+      "id": "f99f"
     },
     {
       "id": "35a3",

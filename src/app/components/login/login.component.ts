@@ -27,6 +27,5 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.__AuthService.handleLogin(this.signUpForm.value)
     this.__Router.navigate(['/home']);
-    console.log(this.signUpForm);
   }
 }

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FetchDataService } from 'src/app/services/fetch-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { SharedService } from 'src/app/services/shared.service';
+import { FormData } from 'src/app/interfaces/form-data';
 
 @Component({
   selector: 'app-modal',
@@ -25,7 +26,7 @@ export class ModalComponent implements OnInit {
     { value: 2, label: 'viewer' },
     { value: 3, label: 'contriputer' },
   ];
-
+data:FormData;
   modalForm: FormGroup;
   id: string;
   ngOnInit(): void {
@@ -71,13 +72,14 @@ export class ModalComponent implements OnInit {
     const sentPremission = this.permissions.filter(
       (item) => item.value === this.modalForm.value.permissions
     );
-    const data = {
+     this.data = {
       name: this.modalForm.value.name,
       email: this.modalForm.value.email,
       location: this.modalForm.value.location,
       joined: this.datePipe.transform(this.modalForm.value.date, 'MMM d, y'),
       permissions: sentPremission[0].label,
     };
+    
     // check if the form opended for add or edit
     this.__SharedService.isEditableValue.subscribe(
       (value) => (this.isEditable = value)
@@ -85,7 +87,7 @@ export class ModalComponent implements OnInit {
 
     if (this.isEditable) {
       this.__SharedService.itemIdValue.subscribe((value) => (this.id = value));
-      this.__FetchDataService.editSingleUser(this.id, data).subscribe({
+      this.__FetchDataService.editSingleUser(this.id, this.data).subscribe({
         next: (reponse) => {
           this.getData();
 
@@ -95,7 +97,7 @@ export class ModalComponent implements OnInit {
         complete: () => console.info('complete'),
       });
     } else {
-      this.__FetchDataService.addUser(data).subscribe({
+      this.__FetchDataService.addUser(this.data).subscribe({
         next: (reponse) => {
           console.log(reponse);
           this.getData();
