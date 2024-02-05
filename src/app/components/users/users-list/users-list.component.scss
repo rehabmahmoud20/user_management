@@ -4,7 +4,6 @@
 }
 .table {
   background-color: rgb(80, 80, 80);
-
   box-shadow: none;
   min-height: 590px;
   width: 500px;
@@ -14,12 +13,15 @@
   }
   td {
     min-height: 40px;
+
   }
   span,
   td,
   th {
     color: var(--white-color);
     text-transform: capitalize;
+  font-family: 'Helvetica';
+
   }
   .td-container {
     display: flex;

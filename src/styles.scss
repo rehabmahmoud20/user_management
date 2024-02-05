@@ -13,6 +13,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+
 $user-management-primary: mat.define-palette(mat.$indigo-palette);
 $user-management-accent: mat.define-palette(
   mat.$pink-palette,
@@ -42,6 +43,14 @@ $user-management-theme: mat.define-light-theme(
 @include mat.all-component-themes($user-management-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/Helvetica Neue W01 66 Medium It.otf') format('woff2'),
+       url('./assets/fonts/Helvetica Neue W01 66 Medium It.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 html,
 body {
@@ -49,12 +58,14 @@ body {
   background-color: rgb(80, 80, 80);
 
   box-sizing: border-box;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Helvetica';
   color: var(--white-color);
 }
+h1,h2 {
+  text-transform: capitalize;
+}
+// *********************************** global classes ******************************************
 .container {
   padding: 72px;
 }
@@ -71,21 +82,19 @@ body {
   align-items: center;
 }
 .main-margin {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 .erorr-msg {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
-h1,h2 {
-  text-transform: capitalize;
-}
+
 @media screen and (max-width:768px){
  h1{
-  font-size: 20px;
+  font-size: 1.25rem;
  }
 }
 @media screen and (max-width:1200px){
   h1{
-    font-size: 25px;
+    font-size: 1.563rem;
    }
 }

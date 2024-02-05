@@ -255,6 +255,14 @@
       "location": "Saepe numquam neque ",
       "joined": "May 26, 1985",
       "permissions": "contriputer"
+    },
+    {
+      "id": "bcc4",
+      "name": "Demetrius Moore",
+      "email": "nepi@mailinator.com",
+      "location": "Voluptatem recusanda",
+      "joined": "May 31, 2001",
+      "permissions": "admin"
     }
   ]
 }

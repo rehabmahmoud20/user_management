@@ -7,6 +7,8 @@
         <input matInput formControlName="name" />
       </mat-form-field>
       <mat-error
+      class="erorr-msg"
+
         *ngIf="
           formControls['name'].errors &&
           formControls['name'].touched &&
