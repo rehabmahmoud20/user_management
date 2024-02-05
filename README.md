@@ -1,3 +1,23 @@
+
+user mamgement
+
+made by angular using angular material library and scss
+
+features : 
+* crud using json server to open it use this command (json-server --watch db.json)
+* search
+* filters
+
+* 
+ using :
+* services for sharing data
+* gurd
+* modules and lazy loading
+* reusable components
+
+
+
+
 # UserManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
