@@ -8,7 +8,7 @@ features :
 * search
 * filters
 
-* 
+  
  using :
 * services for sharing data
 * gurd
