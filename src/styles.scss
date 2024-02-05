@@ -87,6 +87,19 @@ h1,h2 {
 .erorr-msg {
   margin-bottom: 0.625rem;
 }
+// scrollbar
+/* Track */
+::-webkit-scrollbar {
+  width: 6px; /* You can adjust the width */
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color:  var(--primary-color); /* Change the color as per your design */
+}
+
+
 
 @media screen and (max-width:768px){
  h1{
